@@ -154,7 +154,7 @@ namespace details
             return *this;
         }
 
-        constexpr span_iterator operator++(int) noexcept
+        /*constexpr*/ span_iterator operator++(int) noexcept
         {
             span_iterator ret = *this;
             ++*this;
@@ -176,7 +176,7 @@ namespace details
             return ret;
         }
 
-        constexpr span_iterator& operator+=(const difference_type n) noexcept
+        /*constexpr*/ span_iterator& operator+=(const difference_type n) noexcept
         {
             if (n != 0) Expects(begin_ && current_ && end_);
             if (n > 0) Expects(end_ - current_ >= n);
@@ -236,7 +236,7 @@ namespace details
             class Type2,
             typename std::enable_if<
                 std::is_same<typename std::remove_cv<Type2>::type, value_type>::value, int>::type = 0>
-        constexpr bool operator==(const span_iterator<Type2>& rhs) const noexcept
+        /*constexpr*/ bool operator==(const span_iterator<Type2>& rhs) const noexcept
         {
             Expects(begin_ == rhs.begin_ && end_ == rhs.end_);
             return current_ == rhs.current_;
