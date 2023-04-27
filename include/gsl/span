@@ -188,7 +188,7 @@ namespace details
             return *this;
         }
 
-        constexpr span_iterator operator+(const difference_type n) const noexcept
+        /*constexpr*/ span_iterator operator+(const difference_type n) const noexcept
         {
             span_iterator ret = *this;
             ret += n;
